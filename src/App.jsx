@@ -1,120 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import AppSearch from './components/AppSearch'
+import './components/AppSearch.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
+    <div className="app-wrapper">
+      <div className="note-box">
+        <div className="note-box__header">Notes</div>
+        <div className="note-box__content">This prototype displays improvements for adding a new module into a scenario form.
           <ul>
             <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
+              New item category: <strong>Templates</strong>
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
+              User stories:
+              <ul>  
+                <li>As a user creating a new scenario, I would like to be able to apply a template directly from the scenario editor so that I do not need to leave it.</li>
+                <li>As a user creating a new scenario, I would like to see all the existing templates without going elsewhere, so that I can decide which template to apply.</li>
+                <li>As a user creating a new scenario, I would like to be able to search among the existing templates, so that I can quickly select the right one.</li>
+              </ul>
+            </li>
+            <li>
+              Success metrics:
+              <ul>  
+                <li><strong>Leading indicator: </strong>Independent scenario creation rate after template use.</li>
+                  <ul>
+                      <li><strong>Formula: </strong>users who completed a manual scenario (another) after first using a template / users who completed their first templated scenario</li>
+                  </ul>
+                <li><strong>Counter metric: </strong>Advanced techniques use by power users.</li>
+                  <ul>
+                      <li><strong>Formula: </strong>percentage of power users using advanced techniques / percentage of power users</li>
+                  </ul>
+              </ul>
             </li>
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+          Other identifed friction points:
           <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
+            <li><strong>Search inconsistency: </strong>e.g. using "Teams" search term does not find "Microsoft Teams" app, while "Sheets" is enough to find "Google Sheets" app.</li>
+            <li><strong>Missing autosave: </strong>lost changes when unintentionally closing the form for module settings (e.g. pressing ESC button).</li>
+            <li><strong>Unsupported Google Sheets relative references: </strong>e.g. totals row is not supported.</li>
           </ul>
         </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      </div>
+      <AppSearch />
+    </div>
   )
 }
 
